@@ -4,9 +4,14 @@
     padding: 0px;
     text-decoration: none;
 }
+.sketch-pad{
+    width: 970px;
+}
 .grid-row{
-    border:  1px solid black;
+    border:  0.5px solid black;
+    
     display:flex;
+    justify-content: space-around;
 }
 .grid-cell{
     border-right: 1px solid black;
