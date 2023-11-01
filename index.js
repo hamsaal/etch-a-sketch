@@ -1,5 +1,22 @@
 let padContainer = document.querySelector(".sketch-pad");
 const resizeButton = document.querySelector("button");
+let input = document.querySelector(".slider");
+let currentValue = document.querySelector(".grid-size")
+
+currentValue.innerHTML = input.value;
+
+
+
+// Create a function which Updates value of the current-size
+const UpdateGridSize =(event)=>{
+    return event.target.value
+}
+input.addEventListener("input",(e)=>{
+    let sliderValue = UpdateGridSize(e);
+    currentValue.innerHTML=sliderValue;
+})
+
+
 
 
 // Create a function which prompts user with a question to resize the grid
