@@ -1,4 +1,17 @@
 let padContainer = document.querySelector(".sketch-pad");
+const resizeButton = document.querySelector("button");
+
+// 
+// Create a function which prompts user with a question to resize the grid
+const AskUser= ()=>{
+    const userInput = prompt("What size of the grid you want?");
+    return userInput;
+    
+}
+
+resizeButton.addEventListener("click",()=>{
+    const UserInput = AskUser();
+})
 
 //  Create functions such that it creates division (this will be used to create rows and cells)
 
