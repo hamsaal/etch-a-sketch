@@ -15,6 +15,11 @@
 }
 .grid-cell{
     border-right: 1px solid black;
-    height: 50px;
+    aspect-ratio: 1/1;
     flex-basis: 100%;
+}
+button{
+    width: 50px;
+    height:50px;
+
 }
