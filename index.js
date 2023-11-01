@@ -4,7 +4,10 @@ let input = document.querySelector(".slider");
 let currentValue = document.querySelector(".grid-size");
 currentValue.innerHTML = input.value;
 
-
+// Create a function which changes the background-color of the div on which it is hovered upon
+const UpdateGridColor=(event)=>{
+    event.target.classList.add("clicked-grid-cell");
+}
 
 // Create a function which Updates value of the current grid size
 const UpdateGridSize = (event) => {
@@ -37,6 +40,7 @@ const StyleCell = (div) => {
 const CreateColumns = (number, row) => {
   for (let i = 0; i < number; i++) {
     const gridCell = CreateDiv();
+    gridCell.addEventListener("click",UpdateGridColor); // Add event listener for the created grid cell
     StyleCell(gridCell);
     row.appendChild(gridCell);
   }
