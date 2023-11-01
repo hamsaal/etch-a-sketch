@@ -6,11 +6,15 @@ const resizeButton = document.querySelector("button");
 const AskUser= ()=>{
     const userInput = prompt("What size of the grid you want?");
     return userInput;
-    
+}
+// Create a function which check the user Input and runs the appropriate function
+const CheckUserInput = (function1,function2,userInput)=>{
+    userInput<100? function1(userInput):function2();
 }
 
 resizeButton.addEventListener("click",()=>{
-    const UserInput = AskUser();
+    const userInput = AskUser();
+    CheckUserInput(CreateGrid(userInput),AskUser,userInput);
 })
 
 //  Create functions such that it creates division (this will be used to create rows and cells)
@@ -33,7 +37,7 @@ const StyleCell =(div)=>{
 
 // Create a function which creates columns for each row
 const CreateColumns =(row)=>{
-    for (let i = 0; i<16; i++){
+    for (let i = 0; i<row; i++){
         const gridCell = CreateDiv();
         StyleCell(gridCell);
         row.appendChild(gridCell);  
@@ -43,9 +47,9 @@ const CreateColumns =(row)=>{
 
 //Create function which creates a 16X 16 grid 
 
-const CreateGrid =()=>{
+const CreateGrid =(n)=>{
 
-    for(let i = 0 ; i< 16 ; i++){
+    for(let i = 0 ; i< n ; i++){
         const gridRow=CreateDiv();
         StyleRow(gridRow);
         padContainer.appendChild(gridRow)
