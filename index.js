@@ -1,7 +1,7 @@
 let padContainer = document.querySelector(".sketch-pad");
 const resizeButton = document.querySelector("button");
 
-// 
+
 // Create a function which prompts user with a question to resize the grid
 const AskUser= ()=>{
     const userInput = prompt("What size of the grid you want?");
@@ -14,7 +14,8 @@ const CheckUserInput = (function1,function2,userInput)=>{
 
 resizeButton.addEventListener("click",()=>{
     const userInput = AskUser();
-    CheckUserInput(CreateGrid(userInput),AskUser,userInput);
+    
+    CheckUserInput(CreateGrid,AskUser,userInput);
 })
 
 //  Create functions such that it creates division (this will be used to create rows and cells)
@@ -36,8 +37,8 @@ const StyleCell =(div)=>{
 }
 
 // Create a function which creates columns for each row
-const CreateColumns =(row)=>{
-    for (let i = 0; i<row; i++){
+const CreateColumns =(number,row)=>{
+    for (let i = 0; i<number ; i++){
         const gridCell = CreateDiv();
         StyleCell(gridCell);
         row.appendChild(gridCell);  
@@ -48,14 +49,13 @@ const CreateColumns =(row)=>{
 //Create function which creates a 16X 16 grid 
 
 const CreateGrid =(n)=>{
+    padContainer.innerHTML="";
 
     for(let i = 0 ; i< n ; i++){
         const gridRow=CreateDiv();
         StyleRow(gridRow);
         padContainer.appendChild(gridRow)
-        CreateColumns(gridRow);       
+        CreateColumns(n,gridRow);       
     }
     }
-
-
-CreateGrid();
+CreateGrid(16);
