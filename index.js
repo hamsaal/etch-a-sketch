@@ -1,6 +1,6 @@
 let padContainer = document.querySelector(".sketch-pad");
 
-//  Create functions such that it creates division
+//  Create functions such that it creates division (this will be used to create rows and cells)
 
 const CreateDiv =()=>{
         let div= document.createElement("div");
@@ -36,11 +36,8 @@ const CreateGrid =()=>{
         const gridRow=CreateDiv();
         StyleRow(gridRow);
         padContainer.appendChild(gridRow)
-        CreateColumns(gridRow);
-        
+        CreateColumns(gridRow);       
     }
-
-
     }
 
 
