@@ -6,5 +6,10 @@
 }
 .grid-row{
     border:  1px solid black;
-    
+    display:flex;
+}
+.grid-cell{
+    border-right: 1px solid black;
+    width: 3px;
+    height:3px;
 }
