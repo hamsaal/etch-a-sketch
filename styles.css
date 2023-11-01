@@ -5,7 +5,7 @@
     text-decoration: none;
 }
 .sketch-pad{
-    width: 970px;
+    width: 960px;
 }
 .grid-row{
     border:  0.5px solid black;
@@ -21,5 +21,7 @@
 button{
     width: 50px;
     height:50px;
-
+}
+.clicked-grid-cell{
+    background-color: black;
 }
