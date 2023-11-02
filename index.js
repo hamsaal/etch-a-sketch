@@ -1,17 +1,14 @@
+
 let padContainer = document.querySelector(".sketch-pad");
 let eraseButton = document.querySelector(".erase-button");
 let eraseSketch = false;
 
-
-const CheckClickedStatus = ()=>{
-return eraseButton.classList.contains("unclicked-erase-button")
-    
-}
-const changeEraseStatus = ()=>{
-        eraseSketch=true;
-
-}
-
+const CheckClickedStatus = () => {
+  return eraseButton.classList.contains("clicked-erase-button");
+};
+const changeEraseStatus = () => {
+  eraseSketch = true;
+};
 
 // Initilization of the grid-size
 let input = document.querySelector(".slider");
@@ -19,22 +16,25 @@ let currentValue = document.querySelector(".grid-size");
 currentValue.innerHTML = input.value;
 //
 
-eraseButton.addEventListener("click",()=>{
-    eraseButton.classList.toggle("unclicked-erase-button");
-    if (CheckClickedStatus()){
-        changeEraseStatus();
-    }
-    else{
-        eraseSketch = false;
-    }   
+eraseButton.addEventListener("click", () => {
+  eraseButton.classList.toggle("clicked-erase-button");
+  if (CheckClickedStatus()) {
+    document.body.style.cursor ="./eraser-solid.svg";
 
-})
+  } else {
+    eraseSketch = false;
+  }
+});
 
 // Create a function which changes the background-color of the div on which it is hovered upon
-const UpdateGridColor=(event)=>{
+const UpdateGridColor = (event) => {
+  if (!eraseSketch) {
     event.target.classList.add("clicked-grid-cell");
-    console.log(CheckClickedStatus());
-}
+  }
+  if (eraseSketch) {
+    event.target.classList.add("rm-clicked-grid-cl");
+  }
+};
 
 // Create a function which Updates value of the current grid size
 const UpdateGridSize = (event) => {
@@ -67,7 +67,7 @@ const StyleCell = (div) => {
 const CreateColumns = (number, row) => {
   for (let i = 0; i < number; i++) {
     const gridCell = CreateDiv();
-    gridCell.addEventListener("click",UpdateGridColor); // Add event listener for the created grid cell
+    gridCell.addEventListener("click", UpdateGridColor); // Add event listener for the created grid cell
     StyleCell(gridCell);
     row.appendChild(gridCell);
   }
