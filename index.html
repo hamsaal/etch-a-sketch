@@ -5,29 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-sketch</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&family=Edu+TAS+Beginner:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
   </head>
   <body>
-    <div class="sketch-pad"></div>
-    <div class="slider-container">
-      <input
-        type="range"
-        min="1"
-        max="64"
-        value="16"
-        class="slider"
-        id="myRange"
-      />
+    <header>
+      <div>Etch-a-sketch</div>
+    </header>
+    <div class="pad-container">
+      <div class="sketch-options">
+        <div class="slider-container">
+          <input
+            type="range"
+            min="1"
+            max="64"
+            value="16"
+            class="slider"
+            id="myRange"
+            name="slider"
+          />
+        </div>
+        <div class="grid-size-container">
+          <p class="grid-size"></p>
+        </div>
+        <div class="erasor-container">
+            <button type="button" class="btn btn-outline-light erase-button">Light</button>
+        </div>
+        <div class="color-container">
+          <input type="color" id="color" name="color" value="#000000" />
+          <label for="color">Color</label>
+        </div>
+      </div>
+      <div class="sketch-pad"></div>
     </div>
-    <div class="grid-size-container">
-      <p class="grid-size"></p>
-    </div>
-    <div class="erasor-container">
-      <button class="erase-button">Erase</button>
-    </div>
-    <div class="color-container">
-      <input type="color" id="color" name="color" value="#000000" />
-      <label for="color">Color</label>
-    </div>
+    <footer>
+      <div>Copyrights@Hamza Muhammad</div>
+    </footer>
   </body>
   <script src="./index.js"></script>
 </html>

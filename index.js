@@ -1,15 +1,12 @@
-
 let padContainer = document.querySelector(".sketch-pad");
 let eraseButton = document.querySelector(".erase-button");
 let eraseSketch = false;
-let colorInput =document.querySelector("#color");
+let colorInput = document.querySelector("#color");
 let color = document.querySelector("#color").value;
 
-colorInput.addEventListener("change",()=>{
-    color=colorInput.value;
-
-})
-
+colorInput.addEventListener("change", () => {
+  color = colorInput.value;
+});
 
 const CheckClickedStatus = () => {
   return eraseButton.classList.contains("clicked-erase-button");
@@ -21,14 +18,13 @@ const changeEraseStatus = () => {
 // Initilization of the grid-size
 let input = document.querySelector(".slider");
 let currentValue = document.querySelector(".grid-size");
-currentValue.innerHTML = input.value;
+currentValue.innerHTML = `${input.value} x ${input.value}` ;
 //
 
 eraseButton.addEventListener("click", () => {
   eraseButton.classList.toggle("clicked-erase-button");
   if (CheckClickedStatus()) {
-    eraseSketch=true;
-
+    eraseSketch = true;
   } else {
     eraseSketch = false;
   }
@@ -36,12 +32,11 @@ eraseButton.addEventListener("click", () => {
 
 // Create a function which changes the background-color of the div on which it is hovered upon
 const UpdateGridColor = (event) => {
-
   if (!eraseSketch) {
     event.target.style.backgroundColor = color;
   }
   if (eraseSketch) {
-    event.target.style.backgroundColor = "#ffffff"
+    event.target.style.backgroundColor = "#ffffff";
   }
 };
 
@@ -51,7 +46,7 @@ const UpdateGridSize = (event) => {
 };
 input.addEventListener("input", (e) => {
   let sliderValue = UpdateGridSize(e);
-  currentValue.innerHTML = sliderValue;
+  currentValue.innerHTML = `${sliderValue} x ${sliderValue}`;
   CreateGrid(sliderValue);
 });
 
@@ -85,7 +80,6 @@ const CreateColumns = (number, row) => {
 //Create function which creates a 16X 16 grid
 
 const CreateGrid = (n) => {
-
   padContainer.innerHTML = "";
 
   for (let i = 0; i < n; i++) {

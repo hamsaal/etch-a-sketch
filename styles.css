@@ -4,12 +4,40 @@
     padding: 0px;
     text-decoration: none;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    background-color: #0174BE !important;
+}
+
+
+header,footer{
+    display:flex;
+    justify-content: center;
+    background-color: #0C356A;  
+    
+}
+footer div{
+    font-size: 20px;
+}
+header div{
+    font-size: 50px;
+}
+header,footer div{
+    padding:50px;
+    font-weight:900;
+    color:#FFF0CE;
+}
+
 .sketch-pad{
-    width: 960px;
+    width: 700px;
+    border: 20px #0C356A  solid;
+    border-radius: 30px;
+    background-color: white ;
 }
 .grid-row{
-    border:  0.5px solid black;
-    
+    border:  0.5px solid black;  
     display:flex;
     justify-content: space-around;
 }
@@ -25,7 +53,37 @@ button{
 
 .clicked-erase-button{
     transform: translate(1px,1px);
+    box-shadow: 2px 2px 5px #fc894d;
 }
 .rm-clicked-grid-cl{
     background-color: white;
 }
+.pad-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding : 50px;
+    gap: 60px;
+}
+.sketch-options{
+    display: flex;
+    flex-direction: column;
+    gap : 40px;
+}
+.grid-size-container,.erasor-container,.color-container,.slider-container{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 16px;
+}
+.grid-size-container{
+    margin-top: -50px;
+}
+.btn{
+    padding: 16px;
+    width: 100px;
+}
+.btn:active{
+    
+}
+
