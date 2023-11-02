@@ -2,6 +2,14 @@
 let padContainer = document.querySelector(".sketch-pad");
 let eraseButton = document.querySelector(".erase-button");
 let eraseSketch = false;
+let colorInput =document.querySelector("#color");
+let color = document.querySelector("#color").value;
+
+colorInput.addEventListener("change",()=>{
+    color=colorInput.value;
+
+})
+
 
 const CheckClickedStatus = () => {
   return eraseButton.classList.contains("clicked-erase-button");
@@ -28,11 +36,12 @@ eraseButton.addEventListener("click", () => {
 
 // Create a function which changes the background-color of the div on which it is hovered upon
 const UpdateGridColor = (event) => {
+
   if (!eraseSketch) {
-    event.target.classList.add("clicked-grid-cell");
+    event.target.style.backgroundColor = color;
   }
   if (eraseSketch) {
-    event.target.classList.add("rm-clicked-grid-cl");
+    event.target.style.backgroundColor = "#ffffff"
   }
 };
 
@@ -67,7 +76,7 @@ const StyleCell = (div) => {
 const CreateColumns = (number, row) => {
   for (let i = 0; i < number; i++) {
     const gridCell = CreateDiv();
-    gridCell.addEventListener("click", UpdateGridColor); // Add event listener for the created grid cell
+    gridCell.addEventListener("mouseover", UpdateGridColor); // Add event listener for the created grid cell
     StyleCell(gridCell);
     row.appendChild(gridCell);
   }
@@ -76,6 +85,7 @@ const CreateColumns = (number, row) => {
 //Create function which creates a 16X 16 grid
 
 const CreateGrid = (n) => {
+
   padContainer.innerHTML = "";
 
   for (let i = 0; i < n; i++) {
