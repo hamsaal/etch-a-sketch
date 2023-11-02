@@ -25,3 +25,6 @@ button{
 .clicked-grid-cell{
     background-color: black;
 }
+.clicked-erase-button{
+    transform: translateY(4px);
+}
