@@ -19,7 +19,7 @@ currentValue.innerHTML = input.value;
 eraseButton.addEventListener("click", () => {
   eraseButton.classList.toggle("clicked-erase-button");
   if (CheckClickedStatus()) {
-    document.body.style.cursor ="./eraser-solid.svg";
+    eraseSketch=true;
 
   } else {
     eraseSketch = false;

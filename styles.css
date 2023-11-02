@@ -26,5 +26,8 @@ button{
     background-color: black;
 }
 .clicked-erase-button{
-    transform: translateY(4px);
+    transform: translate(1px,1px);
+}
+.rm-clicked-grid-cl{
+    background-color: white;
 }
